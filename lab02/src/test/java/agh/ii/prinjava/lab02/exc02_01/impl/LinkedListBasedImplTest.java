@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListBasedImplTest {
 
@@ -14,6 +14,7 @@ class LinkedListBasedImplTest {
 
     @BeforeEach
     void setUp() {
+         StackOfInts stackOfInts = StackOfIntsFtry.create(StackOfIntsFtry.Impln.L_LIST_B);
     }
 
     @AfterEach
@@ -22,6 +23,33 @@ class LinkedListBasedImplTest {
 
     @Test
     void newStackIsEmpty() {
-        assertTrue(stackOfInts.isEmpty());
+        assertTrue(stackOfInts.isEmpty(), "A new stack should be empty");
     }
+
+    @Test
+    void pushElem(){
+        stackOfInts.push(1);
+        assertFalse(stackOfInts.isEmpty(), "Stack shouldn't be empty after first push");
+    }
+
+    @Test
+    void popElem (){
+        stackOfInts.push(1);
+        stackOfInts.pop();
+        assertTrue(stackOfInts.isEmpty(), "Stack should be empty after one push and one pop");
+    }
+
+    @Test
+    void elemNum (){
+        stackOfInts.push(1);
+        assertEquals(1, stackOfInts.numOfElems(),"Number of element should increased after push");
+    }
+
+    @Test
+    void peekElem(){
+        stackOfInts.push(1);
+        stackOfInts.push(2);
+        assertEquals(2, stackOfInts.peek(), "Peek should be the last push element");
+    }
+
 }

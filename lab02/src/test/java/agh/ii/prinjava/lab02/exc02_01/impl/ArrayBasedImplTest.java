@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayBasedImplTest {
 
@@ -14,7 +14,9 @@ class ArrayBasedImplTest {
 
     @BeforeEach
     void setUp() {
+        StackOfInts stackOfInts = StackOfIntsFtry.create(StackOfIntsFtry.Impln.ARRAY_B);
     }
+
 
     @AfterEach
     void tearDown() {
@@ -23,5 +25,31 @@ class ArrayBasedImplTest {
     @Test
     void newStackIsEmpty() {
         assertTrue(stackOfInts.isEmpty());
+    }
+
+    @Test
+    void popElem(){
+        stackOfInts.push(1);
+        stackOfInts.pop();
+        assertTrue(stackOfInts.isEmpty(), "A stack should be empty");
+    }
+
+    @Test
+    void pushElem(){
+        stackOfInts.push(1);
+        assertFalse(stackOfInts.isEmpty(), "A stack shouldn't be empty");
+    }
+
+    @Test
+    void peekElem(){
+        stackOfInts.push(1);
+        stackOfInts.push(2);
+        assertEquals(2, stackOfInts.peek(), "The top of the stack should be the last pushed element");
+    }
+
+    @Test
+    void elemNum (){
+        stackOfInts.push(1);
+        assertEquals(1, stackOfInts.numOfElems(),"Number of element should increased after push");
     }
 }
