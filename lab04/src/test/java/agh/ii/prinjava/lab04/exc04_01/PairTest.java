@@ -12,6 +12,7 @@ class PairTest {
 
     @BeforeEach
     void setUp() {
+        pairOfIntStr = new Pair<>(1, "snd");
     }
 
     @AfterEach
@@ -21,5 +22,11 @@ class PairTest {
     @Test
     void t1() {
         assertTrue(true);
+    }
+
+    @Test
+    void testClone() throws CloneNotSupportedException {
+        super.clone();
+        assertEquals(pairOfIntStr,clone(),"Cloned pair should be same as original pair" );
     }
 }

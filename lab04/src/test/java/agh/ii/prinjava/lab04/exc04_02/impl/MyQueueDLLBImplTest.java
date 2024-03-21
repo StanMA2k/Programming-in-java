@@ -13,6 +13,7 @@ class MyQueueDLLBImplTest {
 
     @BeforeEach
     void setUp() {
+        queueOfInts = MyQueue.<Integer>create();
     }
 
     @AfterEach
@@ -21,6 +22,27 @@ class MyQueueDLLBImplTest {
 
     @Test
     void newQueueIsEmpty() {
-        assertTrue(true);
+        assertTrue(queueOfInts.isEmpty(),"A new queue shouldn't be empty");
     }
+
+    @Test
+    void enqueueElem(){
+        queueOfInts.enqueue(1);
+        assertFalse(queueOfInts.isEmpty(), "Stack shouldn't be empty after push");
+    }
+
+    @Test
+    void dequeueElem(){
+        queueOfInts.enqueue(1);
+        queueOfInts.dequeue();
+        assertTrue(queueOfInts.isEmpty(), "Stack shouldn't have element");
+    }
+
+    @Test
+    void peekElem(){
+        queueOfInts.enqueue(1);
+        queueOfInts.enqueue(2);
+        assertEquals(1, queueOfInts.peek(),"Peek should be last pushed element");
+    }
+
 }

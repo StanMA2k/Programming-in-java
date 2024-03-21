@@ -13,6 +13,8 @@ class MyStackDLLBImplTest {
 
     @BeforeEach
     void setUp() {
+       stackOfInts = MyStack.<Integer>create();
+
     }
 
     @AfterEach
@@ -21,6 +23,27 @@ class MyStackDLLBImplTest {
 
     @Test
     void newStackIsEmpty() {
-        assertTrue(true);
+        assertTrue(stackOfInts.isEmpty(),"A new stack should be empty");
     }
+
+    @Test
+    void pushElem(){
+        stackOfInts.push(1);
+        assertFalse(stackOfInts.isEmpty(), "Stack shouldn't be empty after push");
+    }
+
+    @Test
+    void popElem(){
+        stackOfInts.push(1);
+        stackOfInts.pop();
+        assertTrue(stackOfInts.isEmpty(), "Stack shouldn't have element");
+    }
+
+    @Test
+    void peekElem(){
+        stackOfInts.push(1);
+        stackOfInts.push(2);
+        assertEquals(2, stackOfInts.peek(),"Peek should be last pushed element");
+    }
+
 }
