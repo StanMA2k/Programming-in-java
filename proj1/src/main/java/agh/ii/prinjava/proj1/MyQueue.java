@@ -1,7 +1,5 @@
 package agh.ii.prinjava.proj1;
-
 import agh.ii.prinjava.proj1.impl.MyQueueDLLBImpl;
-
 /**
  * A generic interface representing a queue data structure.
  *

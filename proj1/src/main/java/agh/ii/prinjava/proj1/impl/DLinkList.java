@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 public class DLinkList<E> {
     private Node<E> first;
     private Node<E> last;
-    private int size;
+    int size;
 
     /**
      * Constructs an empty doubly linked list.
@@ -129,6 +129,14 @@ public class DLinkList<E> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * Returns the first element in the list without removing it
+     * @return the first element
+     */
+    public E peekElem(){
+        return first.elem;
     }
 
     /**

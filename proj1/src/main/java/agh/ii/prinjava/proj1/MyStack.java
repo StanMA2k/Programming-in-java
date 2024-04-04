@@ -1,7 +1,5 @@
 package agh.ii.prinjava.proj1;
-
 import agh.ii.prinjava.proj1.impl.MyStackDLLBImpl;
-
 /**
  * A generic interface representing a stack data structure.
  *
@@ -54,6 +52,6 @@ public interface MyStack<E> {
      * @return a new instance of {@code MyStack}
      */
     static <T> MyStack<T> create() {
-        return new MyStackDLLBImpl<>();
+        return new MyStackDLLBImpl<T>();
     }
 }
