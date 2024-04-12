@@ -133,9 +133,10 @@ public class DLinkList<E> {
 
     /**
      * Returns the first element in the list without removing it
+     *
      * @return the first element
      */
-    public E peekElem(){
+    public E peekElem() {
         return first.elem;
     }
 
