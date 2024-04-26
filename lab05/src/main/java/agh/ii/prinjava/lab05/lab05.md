@@ -73,7 +73,7 @@ SortedSet: has orders, and needs following methods to realize
 
 - comparator()
 - first()
-- last(): 
+- last()
 - headSet(E toElement): < toElement。
 - tailSet(E fromElement): >= fromElement。
 - subSet(E fromElement, E toElement): return elements fromElement(include) to toElement(no included)

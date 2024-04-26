@@ -120,7 +120,7 @@ public class Main {
      * </ul>
      */
     private static void demo6() {
-        System.out.println("\ndemo6...");
+        System.out.println("\ndemo6...\n");
         //Function<? super B, ? extends B> f01 = (A x) -> new A(); // Bad return type in lambda expression:
         //Function<? super B, ? extends B> f02 = (C x) -> new B(); // Cannot infer functional interface type
 
@@ -143,6 +143,34 @@ public class Main {
         B r9 = f3.apply(new C());
     }
 
+    private static void c1(){
+        Function<Integer, Integer> f1 = x -> x * 2;
+        Function<Integer, Integer> g1 = x -> x * x;
+
+        int x0 = 3;
+        System.out.println("(f1 . g1)(" + x0 +") = " + f1.compose(g1).apply(x0));
+    }
+    private static void c2(){
+        Function<Integer, Integer> f2 = x -> (int) Math.sin(x);
+        Function<Integer, Integer> g2 = x -> 1 - x + x * x;
+
+        int x0 = 3;
+        System.out.println("(f2 . g2)(" + x0 + ") = result(" + x0 + ") = " + f2.compose(g2).apply(x0));
+    }
+    private static void c3(){
+        Function<Integer, Integer> f3 = x -> 1 - (int) Math.sin(x) + 2 * x * x;
+        Function<Integer, Integer> g3 = x -> (int) Math.cos(x);
+
+        int x0 = 3;
+        System.out.println("(f3 . g3)(" + x0 + ") = result(" + x0 + ") = " + f3.compose(g3).apply(x0));
+    }
+    private static void c1WithAndThen() {
+        Function1<Integer, Integer> f1 = x -> 2 * x;
+        Function1<Integer, Integer> g1 = x -> x * x;
+
+        int x0 = 3;
+        System.out.println("(g1 andThen f1)(" + x0 + ") = " + g1.andThen(f1).apply(x0));
+    }
     public static void main(String[] args) {
         demo1();
         demo2();
@@ -150,6 +178,10 @@ public class Main {
         demo4();
         demo5();
         demo6();
+        c1();
+        c1WithAndThen();
+        c2();
+        c3();
     }
 }
 
